@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mhindex</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+</head>
+<body>
+  <div class="header">
+      <img src="./image/1.png" alt="">
+      <nav class="header-h">
+          <ul class="header-top">
+              <li><a href="./mhindex.html">企业概况</a></li>
+              <li><a href="./product.html">关于我们</a></li>
+              <li><a href="./partner.html">合作企业</a></li>
+              <li><a href="./job.html">人才招聘</a></li>
+          </ul>
+      </nav>
+  </div>
+  <main class="main">
+      <div class="main-left">
+          <ul class="main-qygk"> 
+              <li>企业概况</li>
+              <li>企业创立: 创立于2016年</li>
+              <li>经营业务: 设计、生产加工、销售、安装通风净化设备</li>
+              <li>生产基地: 深圳松岗潭头第二工业区B22栋</li>
+              <li>基地总面积: 1000平方米</li>
+              <li>员工人数: 30人</li>
+              <li>企业类型: 股份制</li>     
+          </ul>
+      </div>
+      <!-- 百度地图 -->
+      <div class="main-right">
+          <div xmlns="http://www.w3.org/1999/xhtml">
+              <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LRXD35GnZKknt2BtDu9kkPEx8mjxZURe"></script>
+
+              <div style="width:550px;height:500px;border:#ccc solid 1px;font-size:25px" id="map"></div>
+                <!-- <p style="color:red;font-weight:1000"> -->
+                <a href="http://developer.baidu.com/map/index.php?title=jspopular/guide/introduction" style="color:#2f83c7" target="_blank"></a>
+                <a href="http://lbsyun.baidu.com/apiconsole/key?application=key" style="color:#2f83c7" target="_blank"></a>
+              </p>
+            <script type="text/javascript">
+              function initMap(){
+                createMap();
+                setMapEvent();
+                addMapControl();
+                addMapOverlay();
+              }
+              function createMap(){ 
+                map = new BMap.Map("map"); 
+                map.centerAndZoom(new BMap.Point(113.887713,22.784522),13);
+              }
+              function setMapEvent(){
+                map.enableScrollWheelZoom();
+                map.enableKeyboard();
+                map.enableDragging();
+                map.enableDoubleClickZoom()
+              }
+              function addClickHandler(target,window){
+                target.addEventListener("click",function(){
+                  target.openInfoWindow(window);
+                });
+              }
+              function addMapOverlay(){
+                var markers = [
+                  {content:"迈航通风净化设备有限公司",title:"",imageOffset: {width:-46,height:-21},position:{lat:22.752612,lng:113.855661}}
+                ];
+                for(var index = 0; index < markers.length; index++ ){
+                  var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+                  var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+                    imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+                  })});
+                  var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+                  var opts = {
+                    width: 200,
+                    title: markers[index].title,
+                    enableMessage: false
+                  };
+                  var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+                  marker.setLabel(label);
+                  addClickHandler(marker,infoWindow);
+                  map.addOverlay(marker);
+                };
+              }
+              function addMapControl(){
+                var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+                scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+                map.addControl(scaleControl);
+                var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+                map.addControl(navControl);
+                var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+                map.addControl(overviewControl);
+              }
+              var map;
+                initMap();
+            </script>
+          </div>
+      </div>
+  </main>
+  <footer class="pagefooter">
+      <a href="javascript:;">© 迈航通风 2020 All Rights Reserved ICP备案号：粤ICP备xxxxx 技术支持：迈航策划</a>
+      <a href=" javascript:;">公司地址：位深圳市宝安区松岗街道潭头工业城B22栋一楼</a>
+      <a href="javascript:;">公司主营业务：生产、销售及安装通风净化设备</a>
+      <a href="javascript:;">业务联系电话：13168779846</a>
+      <a href="javascript:;" class="facebook weixin">微信二维码<i class="iconfont icon-weixin"></i></a>
+  </footer>
+</body> 

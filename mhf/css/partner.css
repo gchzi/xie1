@@ -1,0 +1,132 @@
+body,ul,p,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/* 顶部 */
+.header{
+    display: table;
+    width: 1500px;
+    height: 350px;
+    margin: 0 auto;
+    background:url(../image/logo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:  center ;
+    text-align: center;
+    padding: 30px 0 0 0;
+} 
+.header-top{
+    display: flex;
+    font-size: 28px;
+}
+.header-top ul{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.header-top li{
+    flex: 1;
+    text-align: center;   
+}
+.header-top li a{
+    color: #eee;
+}
+.header-top li a:hover{
+    color: red;
+}
+/* main 主要内容区域 */
+ /* .partner{
+    border: 0 auto;
+
+}  */
+.partner ul{
+    display: table;
+    margin: 10px auto;
+}
+.partner li{
+    width: 800px;
+    height: 350px;
+    display: block;
+    /* border: solid 1px #000; */
+    text-align: center;
+}
+.wow1{
+    float: left;
+    /* border: solid 1px red; */
+    
+}
+.partner-left{
+    width: 50%;
+    margin: 5px auto;
+    display: block;
+
+}
+
+.partner-right{
+    padding: 15px;
+    float: left;
+    width: 37%;
+}
+.h5{
+    float: left;
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.partner-right p{
+   display: block; 
+    color: #858585;
+    font-size: 14px;
+    line-height: 24px; 
+    margin: 30px 0;
+    word-wrap: break-word;
+ }
+/* 底部 */
+.pagefooter{ 
+    position: unset;
+    height: 300px;
+    margin: 0 ;
+    clear: both;
+    text-align: center;
+    background: #333;
+    size:18px;    
+}
+.pagefooter a{
+    padding: 12px;
+    display: block;
+    float: center;
+    color: #ccc; 
+}
+    
+.weixin{
+    position:relative;
+    }
+.weixin::after{
+    content: url(../image/wx.jpg);
+    position: absolute;
+    right: 390px;
+    top: -350px;
+    z-index: 99;
+    width: 120px;
+    height: 120px;
+    border: 5px solid #0095ba;
+    border-radius: 4px;
+    transform-origin: top right;
+    transform: scale(0);
+    opacity: 0;
+    -webkit-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    }
+.weixin:hover::after{
+    transform:scale(1);
+    opacity: 1;
+} 
